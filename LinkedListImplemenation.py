@@ -25,8 +25,17 @@ class LinkedList:
         node_head = Node(data)
         node_head.next = self.head
         self.head = node_head
+    
+    def InsertAfter(self,posNode,data):
+        if posNode is None:
+            print('Invalid Node - Node not in Linked In')
+            return
+        else:
+            new_node = Node(data)
+            new_node.next = posNode.next
+            posNode.next = new_node
         
-
+        
         
     def printList(self):
         temp = self.head
@@ -48,6 +57,9 @@ if __name__ == '__main__':
     list.printList() 
     list.push(30)
     print('\n\n\n----------------Linked List modified with new head-------------------\n\n')
+    list.printList() 
+    list.InsertAfter(node_2,32)
+    print('\n\n\n----------------Linked List modified with new node Insert after the node-------------------\n\n')
     list.printList() 
     
              
