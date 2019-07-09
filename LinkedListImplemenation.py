@@ -25,6 +25,7 @@ class LinkedList:
         node_head = Node(data)
         node_head.next = self.head
         self.head = node_head
+        
 
         
     def printList(self):
@@ -43,8 +44,10 @@ if __name__ == '__main__':
     list.head = node_1
     list.head.next = node_2
     node_2.next = node_3
-    #list.printList() 
+    print('----------------Linked List element-------------------\n\n')
+    list.printList() 
     list.push(30)
+    print('\n\n\n----------------Linked List modified with new head-------------------\n\n')
     list.printList() 
     
              
