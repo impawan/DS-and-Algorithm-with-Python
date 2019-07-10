@@ -21,11 +21,27 @@ class LinkedList:
     
 
     
+    def findLastNode(self):
+        temp = self.head
+        while(temp):
+            if(temp.next is None):
+                return temp
+            else:
+                temp = temp.next 
+        
+    
     def push(self,data):
         node_head = Node(data)
         node_head.next = self.head
         self.head = node_head
     
+    
+    def insertEnd(self,data):
+        #find the last node
+        lastNode = self.findLastNode()
+        newLastNode = Node(data)
+        lastNode.next = newLastNode
+        
     def InsertAfter(self,posNode,data):
         if posNode is None:
             print('Invalid Node - Node not in Linked In')
@@ -59,7 +75,11 @@ if __name__ == '__main__':
     print('\n\n\n----------------Linked List modified with new head-------------------\n\n')
     list.printList() 
     list.InsertAfter(node_2,32)
-    print('\n\n\n----------------Linked List modified with new node Insert after the node-------------------\n\n')
+    print('\n\n\n----------------Linked List modified with new node, Inserted after the given node-------------------\n\n')
     list.printList() 
+    list.insertEnd(99)
+    print('\n\n\n---------------- Inserted in the Last-------------------\n\n')
+    list.printList() 
+ 
     
              
