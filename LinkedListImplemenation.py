@@ -54,9 +54,8 @@ class LinkedList:
             posNode.next = new_node  
     
     def deleteNode(self,data):
-        
         temp  = self.head
-        
+        found_flag = False 
         if temp.data == data:
             self.head = temp.next
             temp = None
@@ -66,11 +65,36 @@ class LinkedList:
             if temp.data == data:
                 prev.next = temp.next
                 temp = prev
+                found_flag = True
             prev = temp
             temp = temp.next
         
-        
-        
+        if found_flag is False:
+            print('No Node ',data,' found in the Linked List\n')
+    
+    def positionalDelete(self, position):
+        temp = self.head
+        if position == 0:
+            self.head = temp.next
+            temp = None
+            print('Deleted the Node at head position')
+            return 
+        else:
+            for i in range(position-1):
+                temp = temp.next
+                if temp is None:
+                    break
+                
+                
+            if temp is None or temp.next is None:
+                print('Given position is greater than Linked List length')
+                return
+            else:
+               temp.next = temp.next.next
+                
+                
+                
+                
      #Method to print the Linked List   
     def printList(self):
         temp = self.head
@@ -112,14 +136,29 @@ if __name__ == '__main__':
     list.deleteNode(99)
     list.printList()
     print('\n\n\n---------------- Add Node 23,24,23,27,24-------------------\n\n')
-    list.push(23)
-    list.push(24)
-    list.push(23)
-    list.push(27)
-    list.push(24)
+    list.push(56)
+    list.push(59)
+    list.push(89)
+    list.push(76)
+    list.push(41)
     print('\n\n\n---------------- Linked list after new Nodes-------------------\n\n')
     list.printList()
     print('\n\n\n---------------- Deleting the Last Node 23 which occur multiple time-------------------\n\n')
     list.deleteNode(23)
     list.printList()
+    print('\n\n\n---------------- If Node is not found in the linked list e.g 100-------------------\n\n')
+    list.deleteNode(100)
+    list.printList()
+    print('\n\n\n---------------- Delete at position 3-------------------\n\n')
+    list.positionalDelete(3)
+    list.printList()
+    print('\n\n\n---------------- Delete at position 1-------------------\n\n')
+    list.positionalDelete(1)
+    list.printList()
+    print('\n\n\n---------------- Delete at position 4-------------------\n\n')
+    list.positionalDelete(4)
+    list.printList()
+    print('\n\n\n---------------- Delete at position 0-------------------\n\n')
+    list.positionalDelete(0)
+    list.printList()                          
              
