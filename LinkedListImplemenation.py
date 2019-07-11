@@ -20,7 +20,7 @@ class LinkedList:
         self.head = None
     
 
-    
+    #This method finds the last node of the Linked List 
     def findLastNode(self):
         temp = self.head
         while(temp):
@@ -29,19 +29,21 @@ class LinkedList:
             else:
                 temp = temp.next 
         
-    
+    #Insert at the beginnning of Linked List 
     def push(self,data):
         node_head = Node(data)
         node_head.next = self.head
         self.head = node_head
+        print('\nNode ',data,' added!\n')
     
-    
+    #Insert in the end of the Linked List 
     def insertEnd(self,data):
         #find the last node
         lastNode = self.findLastNode()
         newLastNode = Node(data)
         lastNode.next = newLastNode
         
+     #Insert after a given Node   
     def InsertAfter(self,posNode,data):
         if posNode is None:
             print('Invalid Node - Node not in Linked In')
@@ -49,10 +51,27 @@ class LinkedList:
         else:
             new_node = Node(data)
             new_node.next = posNode.next
-            posNode.next = new_node
+            posNode.next = new_node  
+    
+    def deleteNode(self,data):
+        
+        temp  = self.head
+        
+        if temp.data == data:
+            self.head = temp.next
+            temp = None
+            return
+        prev = Node(None)
+        while(temp is not None):
+            if temp.data == data:
+                prev.next = temp.next
+                temp = prev
+            prev = temp
+            temp = temp.next
         
         
         
+     #Method to print the Linked List   
     def printList(self):
         temp = self.head
         while(temp):
@@ -75,11 +94,32 @@ if __name__ == '__main__':
     print('\n\n\n----------------Linked List modified with new head-------------------\n\n')
     list.printList() 
     list.InsertAfter(node_2,32)
-    print('\n\n\n----------------Linked List modified with new node, Inserted after the given node-------------------\n\n')
+    print('\n\n\n----------------Linked List modified with new node, Inserted after the given node, 32 after 22 (Node_2)-------------------\n\n')
     list.printList() 
     list.insertEnd(99)
-    print('\n\n\n---------------- Inserted in the Last-------------------\n\n')
+    print('\n\n\n---------------- Inserting Node 99 in the Last-------------------\n\n')
     list.printList() 
- 
-    
+    print('\n\n\n---------------- Deleting the  Node 22-------------------\n\n')
+    list.deleteNode(22)
+    list.printList()
+    print('\n\n\n---------------- Deleting the  Node 32-------------------\n\n')
+    list.deleteNode(32)
+    list.printList()
+    print('\n\n\n---------------- Deleting the  head Node 30-------------------\n\n')
+    list.deleteNode(30)
+    list.printList()
+    print('\n\n\n---------------- Deleting the Last Node 99-------------------\n\n')
+    list.deleteNode(99)
+    list.printList()
+    print('\n\n\n---------------- Add Node 23,24,23,27,24-------------------\n\n')
+    list.push(23)
+    list.push(24)
+    list.push(23)
+    list.push(27)
+    list.push(24)
+    print('\n\n\n---------------- Linked list after new Nodes-------------------\n\n')
+    list.printList()
+    print('\n\n\n---------------- Deleting the Last Node 23 which occur multiple time-------------------\n\n')
+    list.deleteNode(23)
+    list.printList()
              
