@@ -90,14 +90,26 @@ class LinkedList:
                 print('Given position is greater than Linked List length')
                 return
             else:
-               temp.next = temp.next.next
+                delNode = temp.next
+                temp.next = delNode.next
+                del delNode.data
+               
                 
                 
-                
-                
+    def deleteLinkedList(self):
+        temp = self.head
+        while(temp):
+            nextNode = temp.next
+            del temp.data
+            temp = nextNode            
+        print('Linked List is deleted')                
      #Method to print the Linked List   
     def printList(self):
         temp = self.head
+       
+        if temp is None:
+            print('linked List is empty')
+            return 
         while(temp):
             print(temp.data)
             temp = temp.next
@@ -105,60 +117,62 @@ class LinkedList:
         
         
 if __name__ == '__main__':
-    list = LinkedList()
+    Llist = LinkedList()
     node_1 = Node(25)
     node_2 = Node(22)
     node_3 = Node(26)
-    list.head = node_1
-    list.head.next = node_2
+    Llist.head = node_1
+    Llist.head.next = node_2
     node_2.next = node_3
     print('----------------Linked List element-------------------\n\n')
-    list.printList() 
-    list.push(30)
+    Llist.printList() 
+    Llist.push(30)
     print('\n\n\n----------------Linked List modified with new head-------------------\n\n')
-    list.printList() 
-    list.InsertAfter(node_2,32)
+    Llist.printList() 
+    Llist.InsertAfter(node_2,32)
     print('\n\n\n----------------Linked List modified with new node, Inserted after the given node, 32 after 22 (Node_2)-------------------\n\n')
-    list.printList() 
-    list.insertEnd(99)
+    Llist.printList() 
+    Llist.insertEnd(99)
     print('\n\n\n---------------- Inserting Node 99 in the Last-------------------\n\n')
-    list.printList() 
+    Llist.printList() 
     print('\n\n\n---------------- Deleting the  Node 22-------------------\n\n')
-    list.deleteNode(22)
-    list.printList()
+    Llist.deleteNode(22)
+    Llist.printList()
     print('\n\n\n---------------- Deleting the  Node 32-------------------\n\n')
-    list.deleteNode(32)
-    list.printList()
+    Llist.deleteNode(32)
+    Llist.printList()
     print('\n\n\n---------------- Deleting the  head Node 30-------------------\n\n')
-    list.deleteNode(30)
-    list.printList()
+    Llist.deleteNode(30)
+    Llist.printList()
     print('\n\n\n---------------- Deleting the Last Node 99-------------------\n\n')
-    list.deleteNode(99)
-    list.printList()
+    Llist.deleteNode(99)
+    Llist.printList()
     print('\n\n\n---------------- Add Node 23,24,23,27,24-------------------\n\n')
-    list.push(56)
-    list.push(59)
-    list.push(89)
-    list.push(76)
-    list.push(41)
+    Llist.push(56)
+    Llist.push(59)
+    Llist.push(89)
+    Llist.push(76)
+    Llist.push(41)
     print('\n\n\n---------------- Linked list after new Nodes-------------------\n\n')
-    list.printList()
+    Llist.printList()
     print('\n\n\n---------------- Deleting the Last Node 23 which occur multiple time-------------------\n\n')
-    list.deleteNode(23)
-    list.printList()
+    Llist.deleteNode(23)
+    Llist.printList()
     print('\n\n\n---------------- If Node is not found in the linked list e.g 100-------------------\n\n')
-    list.deleteNode(100)
-    list.printList()
+    Llist.deleteNode(100)
+    Llist.printList()
     print('\n\n\n---------------- Delete at position 3-------------------\n\n')
-    list.positionalDelete(3)
-    list.printList()
+    Llist.positionalDelete(3)
+    Llist.printList()
     print('\n\n\n---------------- Delete at position 1-------------------\n\n')
-    list.positionalDelete(1)
-    list.printList()
+    Llist.positionalDelete(1)
+    Llist.printList()
     print('\n\n\n---------------- Delete at position 4-------------------\n\n')
-    list.positionalDelete(4)
-    list.printList()
+    Llist.positionalDelete(4)
+    Llist.printList()
     print('\n\n\n---------------- Delete at position 0-------------------\n\n')
-    list.positionalDelete(0)
-    list.printList()                          
-             
+    Llist.positionalDelete(0)
+    Llist.printList()                          
+    print('\n\n\n----------------Delete Linked List -------------------\n\n')
+    Llist.deleteLinkedList()
+    #list.printList()             
