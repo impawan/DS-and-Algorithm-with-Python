@@ -19,7 +19,16 @@ class LinkedList:
     def __init__(self):
         self.head = None
     
-
+    
+    def getN(self,position):
+        temp = self.head
+        counter = 0 
+        while(temp):
+            if counter == position:
+                return temp
+            temp = temp.next
+            counter = counter + 1
+ 
     #This method finds the last node of the Linked List 
     def findLastNode(self):
         temp = self.head
@@ -172,7 +181,12 @@ if __name__ == '__main__':
     Llist.printList()
     print('\n\n\n---------------- Delete at position 0-------------------\n\n')
     Llist.positionalDelete(0)
-    Llist.printList()                          
+    Llist.printList()  
+    print('\n\n\n----------------get 2and Node -------------------\n\n')
+    print(Llist.getN(2).data) 
+    print('\n\n\n----------------get 1 Node -------------------\n\n')
+    print(Llist.getN(1).data)                            
     print('\n\n\n----------------Delete Linked List -------------------\n\n')
     Llist.deleteLinkedList()
-    #list.printList()             
+    #list.printList() 
+         
