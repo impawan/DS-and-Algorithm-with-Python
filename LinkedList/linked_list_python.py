@@ -188,5 +188,3 @@ if __name__ == '__main__':
     print(Llist.getN(1).data)                            
     print('\n\n\n----------------Delete Linked List -------------------\n\n')
     Llist.deleteLinkedList()
-    
-         
